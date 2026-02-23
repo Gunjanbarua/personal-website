@@ -128,6 +128,24 @@
     </div>
 
     <div class="hero-right">
+
+      
+      <div class="hero-photo-wrap">
+        
+        <img
+          src="/images/profile.jpg"
+          alt="Photo of Gunjan Barua"
+          class="hero-photo"
+          onerror="this.style.display='none';document.getElementById('hero-photo-fallback').style.display='flex'"
+        />
+        <div class="hero-photo-fallback" id="hero-photo-fallback" style="display:none" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="80" height="80" fill="currentColor" opacity="0.4">
+            <circle cx="50" cy="36" r="20"/><ellipse cx="50" cy="80" rx="34" ry="22"/>
+          </svg>
+        </div>
+        
+      </div>
+
       <div class="updates-card">
         <h2 class="updates-heading">
           <span class="pulse-dot"></span>
@@ -136,16 +154,21 @@
         <ul class="updates-list">
           
           <li class="update-item">
-            <time class="update-date" datetime="April 2025">April 2025</time>
+            <time class="update-date" datetime="2025-04-15">April 2025</time>
             <span class="update-title">Awarded Best Student Presentation Award at APSAF</span>
           </li>
           
           <li class="update-item">
-            <time class="update-date" datetime="February 2025">February 2025</time>
+            <time class="update-date" datetime="2025-02-01">February 2025</time>
             <span class="update-title">Scheduled to Present at APSAF Annual Conference</span>
           </li>
           
         </ul>
+        
+        <div class="updates-see-more">
+          <a href="/updates/" class="btn btn-ghost btn-sm">See All Updates →</a>
+        </div>
+        
       </div>
 
       <div class="hero-stats">
