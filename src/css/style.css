@@ -935,7 +935,7 @@ ul {
 
 .pres-item {
   display: flex;
-  gap: 0.4rem;
+  gap: 1.5rem;
   padding: 0.9rem 1rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
