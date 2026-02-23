@@ -342,19 +342,21 @@ title: Portfolio
       <p class="section-subtitle">Field work, research outputs, and conference moments.</p>
     </div>
 
-    {% if collections.gallery.length %}
+    {% if gallery.length %}
     <div class="gallery-grid" id="gallery-grid">
-      {% for item in collections.gallery %}
+      {% for item in gallery %}
       <figure class="gallery-item" data-index="{{ loop.index0 }}">
-        <img src="{{ item.data.image }}" alt="{{ item.data.alt or item.data.title }}" loading="lazy" />
-        <figcaption>{{ item.data.title }}</figcaption>
+        <a href="{{ item.image }}" target="_blank" rel="noopener" aria-label="Open {{ item.title }} in new tab">
+          <img src="{{ item.image }}" alt="{{ item.alt or item.title }}" loading="lazy" />
+        </a>
+        <figcaption>{{ item.title }}</figcaption>
       </figure>
       {% endfor %}
     </div>
     {% else %}
     <div class="gallery-placeholder">
       <p class="gallery-placeholder-text">
-        🖼️ Gallery images will appear here once added via the <a href="/admin/" class="inline-link">CMS admin panel</a>.
+        🖼️ Gallery images will appear here once added to <code>src/content/gallery.md</code>.
       </p>
     </div>
     {% endif %}
