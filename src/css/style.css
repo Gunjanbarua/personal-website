@@ -935,7 +935,8 @@ ul {
 
 .pres-item {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 0.2rem;
   padding: 0.9rem 1rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -947,9 +948,6 @@ ul {
   font-weight: 700;
   color: var(--accent);
   white-space: nowrap;
-  min-width: 110px;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
 }
 
 .pres-title {
