@@ -272,7 +272,40 @@ title: Portfolio
 
 
 {# ═══════════════════════════════════════════════════════════
-   SECTION 5 – CONTACT
+   SECTION 5 – GALLERY
+═══════════════════════════════════════════════════════════ #}
+<section class="snap-section overflow-section" id="gallery" aria-label="Gallery">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-tag">Visual Portfolio</span>
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">Field work, research outputs, and conference moments.</p>
+    </div>
+
+    {% if gallery.length %}
+    <div class="gallery-grid" id="gallery-grid">
+      {% for item in gallery %}
+      <figure class="gallery-item" data-index="{{ loop.index0 }}">
+        <a href="{{ item.image }}" target="_blank" rel="noopener" aria-label="Open {{ item.title }} in new tab">
+          <img src="{{ item.image }}" alt="{{ item.alt or item.title }}" loading="lazy" />
+        </a>
+        <figcaption>{{ item.title }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="gallery-placeholder">
+      <p class="gallery-placeholder-text">
+        🖼️ Gallery images will appear here once added to <code>src/content/gallery.md</code>.
+      </p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════════════════
+   SECTION 6 – CONTACT
 ═══════════════════════════════════════════════════════════ #}
 <section class="snap-section" id="contact" aria-label="Contact">
   <div class="section-inner contact-inner">
@@ -289,13 +322,6 @@ title: Portfolio
           <div>
             <p class="contact-label">Email</p>
             <a href="mailto:{{ bio.email }}" class="contact-value">{{ bio.email }}</a>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-icon">📞</span>
-          <div>
-            <p class="contact-label">Phone</p>
-            <a href="tel:{{ bio.phone }}" class="contact-value">{{ bio.phone }}</a>
           </div>
         </div>
         {% if bio.linkedin %}
@@ -330,38 +356,5 @@ title: Portfolio
         <p class="form-note" id="form-note"></p>
       </form>
     </div>
-  </div>
-</section>
-
-
-{# ═══════════════════════════════════════════════════════════
-   SECTION 6 – GALLERY
-═══════════════════════════════════════════════════════════ #}
-<section class="snap-section overflow-section" id="gallery" aria-label="Gallery">
-  <div class="section-inner">
-    <div class="section-header center">
-      <span class="section-tag">Visual Portfolio</span>
-      <h2 class="section-title">Gallery</h2>
-      <p class="section-subtitle">Field work, research outputs, and conference moments.</p>
-    </div>
-
-    {% if gallery.length %}
-    <div class="gallery-grid" id="gallery-grid">
-      {% for item in gallery %}
-      <figure class="gallery-item" data-index="{{ loop.index0 }}">
-        <a href="{{ item.image }}" target="_blank" rel="noopener" aria-label="Open {{ item.title }} in new tab">
-          <img src="{{ item.image }}" alt="{{ item.alt or item.title }}" loading="lazy" />
-        </a>
-        <figcaption>{{ item.title }}</figcaption>
-      </figure>
-      {% endfor %}
-    </div>
-    {% else %}
-    <div class="gallery-placeholder">
-      <p class="gallery-placeholder-text">
-        🖼️ Gallery images will appear here once added to <code>src/content/gallery.md</code>.
-      </p>
-    </div>
-    {% endif %}
   </div>
 </section>
