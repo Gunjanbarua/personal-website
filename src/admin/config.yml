@@ -9,73 +9,134 @@ public_folder: /content/images
 site_url: https://Gunjanbarua.github.io
 
 collections:
-  # ─── Updates / News ───────────────────────────────────────────────────────
+  # ─── Bio (single file) ────────────────────────────────────────────────────
+  - name: bio
+    label: Bio & Profile
+    files:
+      - name: bio
+        label: Bio / Profile Info
+        file: src/content/bio.md
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Headline, name: headline, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Phone, name: phone, widget: string }
+          - { label: LinkedIn URL, name: linkedin, widget: string, required: false }
+          - { label: GitHub URL, name: github, widget: string, required: false }
+          - { label: ResearchGate URL, name: researchgate, widget: string, required: false }
+          - { label: "Profile Photo Path (e.g. /images/profile.jpg)", name: photo, widget: string, required: false }
+          - { label: Bio Text, name: body, widget: markdown }
+
+  # ─── Updates (single file with list) ──────────────────────────────────────
   - name: updates
     label: Updates & News
-    folder: src/content/updates
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Date, name: date, widget: datetime }
-      - { label: Body, name: body, widget: markdown, required: false }
+    files:
+      - name: updates
+        label: All Updates
+        file: src/content/updates.md
+        fields:
+          - label: Updates
+            name: updates
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+              - { label: Description, name: description, widget: markdown, required: false }
 
-  # ─── Experience ───────────────────────────────────────────────────────────
+  # ─── Education (single file with list) ────────────────────────────────────
+  - name: education
+    label: Education
+    files:
+      - name: education
+        label: Education Entries
+        file: src/content/education.md
+        fields:
+          - label: Education
+            name: education
+            widget: list
+            fields:
+              - { label: Degree, name: degree, widget: string }
+              - { label: Institution, name: institution, widget: string }
+              - { label: Location, name: location, widget: string }
+              - { label: Period, name: period, widget: string }
+              - { label: Dissertation / Thesis, name: dissertation, widget: string, required: false }
+              - { label: Icon (emoji), name: icon, widget: string, default: "🎓" }
+
+  # ─── Experience (single file with list) ───────────────────────────────────
   - name: experience
     label: Experience
-    folder: src/content/experience
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: Job Title, name: title, widget: string }
-      - { label: Organisation, name: org, widget: string }
-      - { label: Start Date, name: start_date, widget: string, hint: "e.g. Aug 2023" }
-      - { label: End Date, name: end_date, widget: string, hint: "e.g. Present or Oct 2025" }
-      - { label: Order (lower = higher), name: order, widget: number, default: 10 }
-      - { label: Description, name: body, widget: markdown }
+    files:
+      - name: experience
+        label: All Experience
+        file: src/content/experience.md
+        fields:
+          - label: Experience
+            name: experience
+            widget: list
+            fields:
+              - { label: Job Title, name: title, widget: string }
+              - { label: Organisation, name: org, widget: string }
+              - { label: Start Date, name: start_date, widget: string, hint: "e.g. Aug 2023" }
+              - { label: End Date, name: end_date, widget: string, hint: "e.g. Present or Oct 2025" }
+              - { label: Description, name: description, widget: markdown }
 
-  # ─── Publications ─────────────────────────────────────────────────────────
+  # ─── Publications (single file with list) ─────────────────────────────────
   - name: publications
     label: Publications
-    folder: src/content/publications
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Journal / Venue, name: journal, widget: string }
-      - { label: Year, name: year, widget: number }
-      - { label: URL / DOI, name: url, widget: string, required: false }
-      - label: Status
-        name: status
-        widget: select
-        options: [Published, In Prep, Under Review]
-        default: Published
-      - { label: Authors, name: authors, widget: string, required: false }
+    files:
+      - name: publications
+        label: All Publications
+        file: src/content/publications.md
+        fields:
+          - label: Publications
+            name: publications
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Journal / Venue, name: journal, widget: string }
+              - { label: Year, name: year, widget: number }
+              - { label: URL / DOI, name: url, widget: string, required: false }
+              - label: Status
+                name: status
+                widget: select
+                options: [Published, In Prep, Under Review]
+                default: Published
+              - { label: Authors, name: authors, widget: string, required: false }
 
-  # ─── Presentations ────────────────────────────────────────────────────────
+  # ─── Presentations (single file with list) ────────────────────────────────
   - name: presentations
     label: Presentations
-    folder: src/content/presentations
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Event / Conference, name: event, widget: string }
-      - { label: Date, name: date, widget: datetime }
-      - { label: Location, name: location, widget: string, required: false }
-      - { label: Notes, name: body, widget: markdown, required: false }
+    files:
+      - name: presentations
+        label: All Presentations
+        file: src/content/presentations.md
+        fields:
+          - label: Presentations
+            name: presentations
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Event / Conference, name: event, widget: string }
+              - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+              - { label: Location, name: location, widget: string, required: false }
+              - { label: Notes, name: notes, widget: markdown, required: false }
 
-  # ─── Awards ───────────────────────────────────────────────────────────────
+  # ─── Awards (single file with list) ───────────────────────────────────────
   - name: awards
     label: Awards & Scholarships
-    folder: src/content/awards
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: Award Title, name: title, widget: string }
-      - { label: Organisation, name: org, widget: string }
-      - { label: Year, name: year, widget: number }
-      - { label: Description, name: body, widget: markdown, required: false }
+    files:
+      - name: awards
+        label: All Awards
+        file: src/content/awards.md
+        fields:
+          - label: Awards
+            name: awards
+            widget: list
+            fields:
+              - { label: Award Title, name: title, widget: string }
+              - { label: Organisation, name: org, widget: string }
+              - { label: Year, name: year, widget: number }
+              - { label: Description, name: description, widget: markdown, required: false }
 
   # ─── Gallery ──────────────────────────────────────────────────────────────
   - name: gallery

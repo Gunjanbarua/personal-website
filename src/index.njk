@@ -39,28 +39,57 @@ title: Portfolio
     </div>
 
     <div class="hero-right">
+
+      {# ── Profile Photo ── #}
+      <div class="hero-photo-wrap">
+        {% if bio.photo %}
+        <img
+          src="{{ bio.photo }}"
+          alt="Photo of {{ bio.name }}"
+          class="hero-photo"
+          onerror="this.style.display='none';document.getElementById('hero-photo-fallback').style.display='flex'"
+        />
+        <div class="hero-photo-fallback" id="hero-photo-fallback" style="display:none" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="80" height="80" fill="currentColor" opacity="0.4">
+            <circle cx="50" cy="36" r="20"/><ellipse cx="50" cy="80" rx="34" ry="22"/>
+          </svg>
+        </div>
+        {% else %}
+        <div class="hero-photo-fallback" id="hero-photo-fallback" aria-label="Profile photo placeholder">
+          <svg viewBox="0 0 100 100" width="80" height="80" fill="currentColor" opacity="0.4">
+            <circle cx="50" cy="36" r="20"/><ellipse cx="50" cy="80" rx="34" ry="22"/>
+          </svg>
+        </div>
+        {% endif %}
+      </div>
+
       <div class="updates-card">
         <h2 class="updates-heading">
           <span class="pulse-dot"></span>
           Recent Updates
         </h2>
         <ul class="updates-list">
-          {% for update in collections.updates | limit(5) %}
+          {% for item in updates | limit(5) %}
           <li class="update-item">
-            <time class="update-date" datetime="{{ update.date | dateDisplay }}">{{ update.date | dateDisplay }}</time>
-            <span class="update-title">{{ update.data.title }}</span>
+            <time class="update-date" datetime="{{ item.date }}">{{ item.date | dateDisplay }}</time>
+            <span class="update-title">{{ item.title }}</span>
           </li>
           {% else %}
           <li class="update-item">
             <span class="update-date">2025</span>
-            <span class="update-title">Awarded Best Student Presentation Award at APSAF</span>
-          </li>
-          <li class="update-item">
-            <span class="update-date">Feb 2025</span>
-            <span class="update-title">Scheduled to present at APSAF Annual Conference</span>
+            <span class="update-title">No updates yet.</span>
           </li>
           {% endfor %}
         </ul>
+        {% if updates.length > 5 %}
+        <div class="updates-see-more">
+          <a href="/updates/" class="btn btn-ghost btn-sm">See More →</a>
+        </div>
+        {% elif updates.length > 0 %}
+        <div class="updates-see-more">
+          <a href="/updates/" class="btn btn-ghost btn-sm">See All Updates →</a>
+        </div>
+        {% endif %}
       </div>
 
       <div class="hero-stats">
@@ -149,15 +178,15 @@ title: Portfolio
     </div>
 
     <div class="experience-list">
-      {% for job in collections.experience %}
+      {% for job in experience %}
       <div class="exp-card">
         <div class="exp-meta">
-          <span class="exp-period">{{ job.data.start_date }} – {{ job.data.end_date }}</span>
+          <span class="exp-period">{{ job.start_date }} – {{ job.end_date }}</span>
         </div>
         <div class="exp-body">
-          <h3 class="exp-title">{{ job.data.title }}</h3>
-          <p class="exp-org">{{ job.data.org }}</p>
-          <div class="exp-desc">{{ job.templateContent | safe }}</div>
+          <h3 class="exp-title">{{ job.title }}</h3>
+          <p class="exp-org">{{ job.org }}</p>
+          <div class="exp-desc">{{ job.description | markdownify | safe }}</div>
         </div>
       </div>
       {% endfor %}
@@ -182,33 +211,33 @@ title: Portfolio
       <div class="pub-col">
         <h3 class="col-heading">📄 Publications</h3>
         <div class="pub-list">
-          {% for pub in collections.publications %}
+          {% for pub in publications %}
           <div class="pub-card">
-            <span class="pub-status pub-status--{{ pub.data.status | lower | replace(' ', '-') }}">{{ pub.data.status }}</span>
+            <span class="pub-status pub-status--{{ pub.status | lower | replace(' ', '-') }}">{{ pub.status }}</span>
             <h4 class="pub-title">
-              {% if pub.data.url %}
-              <a href="{{ pub.data.url }}" target="_blank" rel="noopener">{{ pub.data.title }}</a>
+              {% if pub.url %}
+              <a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>
               {% else %}
-              {{ pub.data.title }}
+              {{ pub.title }}
               {% endif %}
             </h4>
             <p class="pub-meta">
-              <em>{{ pub.data.journal }}</em>
-              {% if pub.data.year %} · {{ pub.data.year }}{% endif %}
+              <em>{{ pub.journal }}</em>
+              {% if pub.year %} · {{ pub.year }}{% endif %}
             </p>
-            {% if pub.data.authors %}<p class="pub-authors">{{ pub.data.authors }}</p>{% endif %}
+            {% if pub.authors %}<p class="pub-authors">{{ pub.authors }}</p>{% endif %}
           </div>
           {% endfor %}
         </div>
 
         <h3 class="col-heading" style="margin-top:2.5rem;">🎤 Presentations</h3>
         <div class="pres-list">
-          {% for pres in collections.presentations %}
+          {% for pres in presentations %}
           <div class="pres-item">
-            <time class="pres-date">{{ pres.data.date | dateDisplay }}</time>
+            <time class="pres-date">{{ pres.date | dateDisplay }}</time>
             <div>
-              <p class="pres-title">{{ pres.data.title }}</p>
-              <p class="pres-event">{{ pres.data.event }}{% if pres.data.location %} · {{ pres.data.location }}{% endif %}</p>
+              <p class="pres-title">{{ pres.title }}</p>
+              <p class="pres-event">{{ pres.event }}{% if pres.location %} · {{ pres.location }}{% endif %}</p>
             </div>
           </div>
           {% endfor %}
@@ -219,14 +248,14 @@ title: Portfolio
       <div class="awards-col">
         <h3 class="col-heading">🏆 Awards &amp; Honors</h3>
         <div class="awards-list">
-          {% for award in collections.awards %}
+          {% for award in awards %}
           <div class="award-card">
-            <div class="award-year">{{ award.data.year }}</div>
+            <div class="award-year">{{ award.year }}</div>
             <div class="award-body">
-              <h4 class="award-title">{{ award.data.title }}</h4>
-              <p class="award-org">{{ award.data.org }}</p>
-              {% if award.templateContent | trim %}
-              <div class="award-desc">{{ award.templateContent | safe }}</div>
+              <h4 class="award-title">{{ award.title }}</h4>
+              <p class="award-org">{{ award.org }}</p>
+              {% if award.description %}
+              <div class="award-desc">{{ award.description | markdownify | safe }}</div>
               {% endif %}
             </div>
           </div>

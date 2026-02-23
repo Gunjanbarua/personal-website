@@ -1,4 +1,7 @@
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
+const markdownIt = require("markdown-it");
+
+const md = markdownIt({ html: true });
 
 module.exports = function (eleventyConfig) {
   // Plugins
@@ -8,44 +11,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/content/images");
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
 
-  // Collections
-  eleventyConfig.addCollection("updates", function (collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("src/content/updates/*.md")
-      .sort((a, b) => b.date - a.date);
-  });
+  // NOTE: Collections using individual markdown files have been replaced by
+  // _data/*.js loaders that read from single consolidated markdown files.
+  // The collections below are kept for backward compatibility but are empty
+  // since the individual files have been removed.
 
-  eleventyConfig.addCollection("experience", function (collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("src/content/experience/*.md")
-      .sort((a, b) => {
-        const dateA = new Date(a.data.start_date || 0);
-        const dateB = new Date(b.data.start_date || 0);
-        return dateB - dateA;
-      });
-  });
-
-  eleventyConfig.addCollection("publications", function (collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("src/content/publications/*.md")
-      .sort((a, b) => (b.data.year || 0) - (a.data.year || 0));
-  });
-
-  eleventyConfig.addCollection("presentations", function (collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("src/content/presentations/*.md")
-      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
-  });
-
-  eleventyConfig.addCollection("awards", function (collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("src/content/awards/*.md")
-      .sort((a, b) => (b.data.year || 0) - (a.data.year || 0));
-  });
-
+  // Gallery still uses individual files
   eleventyConfig.addCollection("gallery", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/content/gallery/*.md");
   });
@@ -60,6 +35,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("limit", function (arr, limit) {
     if (!Array.isArray(arr)) return arr;
     return arr.slice(0, limit);
+  });
+
+  // Markdown filter for rendering markdown strings in templates
+  eleventyConfig.addFilter("markdownify", function (str) {
+    if (!str) return "";
+    return md.render(String(str));
   });
 
   return {

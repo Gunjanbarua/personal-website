@@ -878,6 +878,74 @@ ul { list-style: none; }
 #lightbox-next { right: 1.5rem; }
 
 /* ═══════════════════════════════════════════════════════════
+   PROFILE PHOTO
+═══════════════════════════════════════════════════════════ */
+.hero-photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.hero-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-glow), var(--shadow);
+  display: block;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hero-photo:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 0 10px var(--accent-glow), var(--shadow);
+}
+.hero-photo-fallback {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--bg-card2);
+  border: 3px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UPDATES – SEE MORE BUTTON & FULL PAGE
+═══════════════════════════════════════════════════════════ */
+.btn-sm {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.8rem;
+}
+.updates-see-more {
+  margin-top: 1rem;
+  text-align: right;
+}
+.updates-card--full {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.updates-list--full .update-item {
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.updates-list--full .update-item:last-child { border-bottom: none; }
+.update-body { display: flex; flex-direction: column; gap: 0.25rem; }
+.update-desc {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.25rem;
+}
+.update-desc p { margin-bottom: 0.4rem; }
+.update-desc strong { color: var(--text); }
+.update-desc em { color: var(--accent); font-style: italic; }
+.updates-back { margin-top: 2rem; text-align: center; }
+
+/* ═══════════════════════════════════════════════════════════
    RESPONSIVE – TABLET
 ═══════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
@@ -907,4 +975,6 @@ ul { list-style: none; }
   .section-title { font-size: 1.7rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .hero-stats { flex-direction: row; flex-wrap: wrap; }
+  .hero-photo { width: 120px; height: 120px; }
+  .hero-photo-fallback { width: 120px; height: 120px; }
 }
