@@ -2,7 +2,7 @@
 updates:
   - title: "Seminar Presentation at RS Seminar at Virginia Tech"
     date: "2026-02-23"
-    description: "Presented my research titled 'Scalable Yield Forecasting for Loblolly Pine Plantations Using UAV-LiDAR and Machine Learning' at Remote Sensing seminar at Virginia Tech. 
+    description: "Presented my research titled 'Scalable Yield Forecasting for Loblolly Pine Plantations Using UAV-LiDAR and Machine Learning' at Remote Sensing seminar at Virginia Tech."
 
   - title: "Paper on Mangrove species classification in Bangladesh submitted to Discover Forests. [Preprint](https://ssrn.com/abstract=6168728)"
     date: "2026-02-20"
