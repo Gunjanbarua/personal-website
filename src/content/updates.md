@@ -9,7 +9,7 @@ updates:
   - title: "Paper on plot-based yield prediction of Loblolly Pine using temporal open-source Sentinel-1 and 2 dataset submitted to International Journal of Applied Earth Observation and Geoinformation. The [Preprint](https://ssrn.com/abstract=6228779) is available online."
     date: "2026-02-20"
 
-  - title: "Got featured on Forest Productivity Cooperative's quaterly newsletter. (Read it here)[https://www.forestproductivity.org/graduate-student-highlights/gunjan-barua]"
+  - title: "Got featured on Forest Productivity Cooperative's quaterly newsletter. [Read it here](https://www.forestproductivity.org/graduate-student-highlights/gunjan-barua)"
     date: "2026-02-20"
 
   - title: "Presented my poster titled 'Crowns, Competition, and Continuity: A Machine Learning Approach for Annual Yield Prediction of *Pinus taeda* (L.) Using UAV-LiDAR Data' at **AGU 2025**, held in New Orleans, LA. [Take a look at the poster](https://github.com/Gunjanbarua/posters_presentations/blob/0b7c3dac5b9abb35400cbddf6944abc5e62ed374/Barua_G%20-%202025_AGU.pdf)."
