@@ -821,11 +821,38 @@ ul {
   background: var(--bg);
 }
 
-.pub-awards-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
+/* Stacked vertical layout for publications / presentations / awards */
+.scholarship-stack {
+  display: flex;
+  flex-direction: column;
   gap: 3rem;
 }
+
+.scholarship-block {
+  width: 100%;
+}
+
+/* Publications: show in a responsive multi-column grid */
+.pub-list--full {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+/* Presentations: show in a responsive two-column grid */
+.pres-list--full {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.75rem;
+}
+
+/* Awards: single column */
+.awards-list--full {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
 
 .pub-list {
   display: flex;
