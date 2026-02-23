@@ -1,0 +1,333 @@
+---
+layout: base.njk
+title: Portfolio
+---
+
+{# ═══════════════════════════════════════════════════════════
+   SECTION 1 – HOME / BIO / UPDATES
+═══════════════════════════════════════════════════════════ #}
+<section class="snap-section" id="home" aria-label="Home">
+  <div class="hero-bg"></div>
+  <div class="section-inner hero-inner">
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Open to Collaborations
+      </div>
+      <h1 class="hero-name">{{ bio.name }}</h1>
+      <p class="hero-headline">{{ bio.headline }}</p>
+      <p class="hero-bio">{{ bio.bio | safe }}</p>
+
+      <div class="hero-cta">
+        <a href="#publications" class="btn btn-primary">View Research</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+
+      <div class="hero-socials">
+        {% if bio.linkedin %}
+        <a href="{{ bio.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        {% endif %}
+        <a href="mailto:{{ bio.email }}" class="social-link" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="updates-card">
+        <h2 class="updates-heading">
+          <span class="pulse-dot"></span>
+          Recent Updates
+        </h2>
+        <ul class="updates-list">
+          {% for update in collections.updates | limit(5) %}
+          <li class="update-item">
+            <time class="update-date" datetime="{{ update.date | dateDisplay }}">{{ update.date | dateDisplay }}</time>
+            <span class="update-title">{{ update.data.title }}</span>
+          </li>
+          {% else %}
+          <li class="update-item">
+            <span class="update-date">2025</span>
+            <span class="update-title">Awarded Best Student Presentation Award at APSAF</span>
+          </li>
+          <li class="update-item">
+            <span class="update-date">Feb 2025</span>
+            <span class="update-title">Scheduled to present at APSAF Annual Conference</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Awards</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Years Research</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════════════════
+   SECTION 2 – EDUCATION & SKILLS
+═══════════════════════════════════════════════════════════ #}
+<section class="snap-section overflow-section" id="education" aria-label="Education and Skills">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Academic Background</span>
+      <h2 class="section-title">Education &amp; Technical Skills</h2>
+    </div>
+
+    <div class="edu-skills-grid">
+      <!-- Education -->
+      <div class="edu-col">
+        <h3 class="col-heading">Education</h3>
+        <div class="edu-timeline">
+          {% for edu in education %}
+          <div class="edu-item">
+            <div class="edu-icon">{{ edu.icon }}</div>
+            <div class="edu-content">
+              <h4 class="edu-degree">{{ edu.degree }}</h4>
+              <p class="edu-inst">{{ edu.institution }} <span class="edu-loc">· {{ edu.location }}</span></p>
+              <p class="edu-period">{{ edu.period }}</p>
+              {% if edu.dissertation %}
+              <p class="edu-diss"><em>Dissertation:</em> {{ edu.dissertation | safe }}</p>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="skills-col">
+        <h3 class="col-heading">Technical Skills</h3>
+        <div class="skills-groups">
+          {% for group in skills.groups %}
+          <div class="skill-group">
+            <h4 class="skill-group-title">
+              <span class="skill-icon">{{ group.icon }}</span>
+              {{ group.category }}
+            </h4>
+            <div class="skill-tags">
+              {% for item in group.items %}
+              <span class="skill-tag">{{ item }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════════════════
+   SECTION 3 – EXPERIENCE
+═══════════════════════════════════════════════════════════ #}
+<section class="snap-section overflow-section" id="experience" aria-label="Professional Experience">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Career</span>
+      <h2 class="section-title">Professional &amp; Research Experience</h2>
+    </div>
+
+    <div class="experience-list">
+      {% for job in collections.experience %}
+      <div class="exp-card">
+        <div class="exp-meta">
+          <span class="exp-period">{{ job.data.start_date }} – {{ job.data.end_date }}</span>
+        </div>
+        <div class="exp-body">
+          <h3 class="exp-title">{{ job.data.title }}</h3>
+          <p class="exp-org">{{ job.data.org }}</p>
+          <div class="exp-desc">{{ job.templateContent | safe }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════════════════
+   SECTION 4 – PUBLICATIONS, PRESENTATIONS & AWARDS
+═══════════════════════════════════════════════════════════ #}
+<section class="snap-section overflow-section" id="publications" aria-label="Publications Presentations and Awards">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Scholarship</span>
+      <h2 class="section-title">Publications, Presentations &amp; Awards</h2>
+    </div>
+
+    <div class="pub-awards-grid">
+
+      <!-- Publications -->
+      <div class="pub-col">
+        <h3 class="col-heading">📄 Publications</h3>
+        <div class="pub-list">
+          {% for pub in collections.publications %}
+          <div class="pub-card">
+            <span class="pub-status pub-status--{{ pub.data.status | lower | replace(' ', '-') }}">{{ pub.data.status }}</span>
+            <h4 class="pub-title">
+              {% if pub.data.url %}
+              <a href="{{ pub.data.url }}" target="_blank" rel="noopener">{{ pub.data.title }}</a>
+              {% else %}
+              {{ pub.data.title }}
+              {% endif %}
+            </h4>
+            <p class="pub-meta">
+              <em>{{ pub.data.journal }}</em>
+              {% if pub.data.year %} · {{ pub.data.year }}{% endif %}
+            </p>
+            {% if pub.data.authors %}<p class="pub-authors">{{ pub.data.authors }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+
+        <h3 class="col-heading" style="margin-top:2.5rem;">🎤 Presentations</h3>
+        <div class="pres-list">
+          {% for pres in collections.presentations %}
+          <div class="pres-item">
+            <time class="pres-date">{{ pres.data.date | dateDisplay }}</time>
+            <div>
+              <p class="pres-title">{{ pres.data.title }}</p>
+              <p class="pres-event">{{ pres.data.event }}{% if pres.data.location %} · {{ pres.data.location }}{% endif %}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Awards -->
+      <div class="awards-col">
+        <h3 class="col-heading">🏆 Awards &amp; Honors</h3>
+        <div class="awards-list">
+          {% for award in collections.awards %}
+          <div class="award-card">
+            <div class="award-year">{{ award.data.year }}</div>
+            <div class="award-body">
+              <h4 class="award-title">{{ award.data.title }}</h4>
+              <p class="award-org">{{ award.data.org }}</p>
+              {% if award.templateContent | trim %}
+              <div class="award-desc">{{ award.templateContent | safe }}</div>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════════════════
+   SECTION 5 – CONTACT
+═══════════════════════════════════════════════════════════ #}
+<section class="snap-section" id="contact" aria-label="Contact">
+  <div class="section-inner contact-inner">
+    <div class="section-header center">
+      <span class="section-tag">Let's Connect</span>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Open to research collaborations, speaking invitations, and consulting opportunities.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-detail">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <p class="contact-label">Email</p>
+            <a href="mailto:{{ bio.email }}" class="contact-value">{{ bio.email }}</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-icon">📞</span>
+          <div>
+            <p class="contact-label">Phone</p>
+            <a href="tel:{{ bio.phone }}" class="contact-value">{{ bio.phone }}</a>
+          </div>
+        </div>
+        {% if bio.linkedin %}
+        <div class="contact-detail">
+          <span class="contact-icon">🔗</span>
+          <div>
+            <p class="contact-label">LinkedIn</p>
+            <a href="{{ bio.linkedin }}" target="_blank" rel="noopener" class="contact-value">linkedin.com/in/gunjanbarua</a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <form class="contact-form" name="contact" action="#" method="POST" id="contact-form">
+        <div class="form-group">
+          <label for="contact-name">Your Name</label>
+          <input type="text" id="contact-name" name="name" required placeholder="Jane Smith" />
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Email Address</label>
+          <input type="email" id="contact-email" name="email" required placeholder="jane@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="contact-subject">Subject</label>
+          <input type="text" id="contact-subject" name="subject" placeholder="Research Collaboration" />
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" required placeholder="Tell me about your project or question…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="contact-submit">Send Message</button>
+        <p class="form-note" id="form-note"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════════════════
+   SECTION 6 – GALLERY
+═══════════════════════════════════════════════════════════ #}
+<section class="snap-section overflow-section" id="gallery" aria-label="Gallery">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-tag">Visual Portfolio</span>
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">Field work, research outputs, and conference moments.</p>
+    </div>
+
+    {% if collections.gallery.length %}
+    <div class="gallery-grid" id="gallery-grid">
+      {% for item in collections.gallery %}
+      <figure class="gallery-item" data-index="{{ loop.index0 }}">
+        <img src="{{ item.data.image }}" alt="{{ item.data.alt or item.data.title }}" loading="lazy" />
+        <figcaption>{{ item.data.title }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="gallery-placeholder">
+      <p class="gallery-placeholder-text">
+        🖼️ Gallery images will appear here once added via the <a href="/admin/" class="inline-link">CMS admin panel</a>.
+      </p>
+    </div>
+    {% endif %}
+  </div>
+</section>

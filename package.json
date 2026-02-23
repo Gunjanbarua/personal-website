@@ -1,0 +1,14 @@
+{
+  "name": "gunjan-barua-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Gunjan Barua – Geospatial Data Scientist",
+  "scripts": {
+    "start": "eleventy --serve --port=8080",
+    "build": "eleventy",
+    "dev": "eleventy --serve --port=8080"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.2"
+  }
+}
