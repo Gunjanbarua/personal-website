@@ -1,12 +1,12 @@
 backend:
   name: git-gateway
-  repo: Gunjanbarua/personal-website   # ← Replace with your GitHub username/repo-name
+  repo: Gunjanbarua/Gunjanbarua.github.io
   branch: main
 
 media_folder: src/content/images
 public_folder: /content/images
 
-site_url: https://Gunjanbarua.github.io/personal-website   # ← Replace
+site_url: https://Gunjanbarua.github.io
 
 collections:
   # ─── Updates / News ───────────────────────────────────────────────────────
