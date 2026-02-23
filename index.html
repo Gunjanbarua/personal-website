@@ -52,15 +52,15 @@
         </a>
       </li>
       <li>
-        <a href="#contact" class="nav-dot" data-section="contact" aria-label="Contact">
-          <span class="dot"></span>
-          <span class="label">Contact</span>
-        </a>
-      </li>
-      <li>
         <a href="#gallery" class="nav-dot" data-section="gallery" aria-label="Gallery">
           <span class="dot"></span>
           <span class="label">Gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="nav-dot" data-section="contact" aria-label="Contact">
+          <span class="dot"></span>
+          <span class="label">Contact</span>
         </a>
       </li>
     </ul>
@@ -83,8 +83,8 @@
       <li><a href="#education" class="mobile-nav-link">Education</a></li>
       <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
       <li><a href="#publications" class="mobile-nav-link">Publications &amp; Awards</a></li>
-      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
       <li><a href="#gallery" class="mobile-nav-link">Gallery</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
     </ul>
   </div>
   <div id="mobile-overlay"></div>
@@ -1038,67 +1038,6 @@
 
 
 
-<section class="snap-section" id="contact" aria-label="Contact">
-  <div class="section-inner contact-inner">
-    <div class="section-header center">
-      <span class="section-tag">Let's Connect</span>
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="section-subtitle">Open to research collaborations, speaking invitations, and consulting opportunities.</p>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-detail">
-          <span class="contact-icon">✉️</span>
-          <div>
-            <p class="contact-label">Email</p>
-            <a href="mailto:gunjanb@vt.edu" class="contact-value">gunjanb@vt.edu</a>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-icon">📞</span>
-          <div>
-            <p class="contact-label">Phone</p>
-            <a href="tel:+1 571 397 6799" class="contact-value">+1 571 397 6799</a>
-          </div>
-        </div>
-        
-        <div class="contact-detail">
-          <span class="contact-icon">🔗</span>
-          <div>
-            <p class="contact-label">LinkedIn</p>
-            <a href="https://linkedin.com/in/gunjanbarua/" target="_blank" rel="noopener" class="contact-value">linkedin.com/in/gunjanbarua</a>
-          </div>
-        </div>
-        
-      </div>
-
-      <form class="contact-form" name="contact" action="#" method="POST" id="contact-form">
-        <div class="form-group">
-          <label for="contact-name">Your Name</label>
-          <input type="text" id="contact-name" name="name" required placeholder="Jane Smith" />
-        </div>
-        <div class="form-group">
-          <label for="contact-email">Email Address</label>
-          <input type="email" id="contact-email" name="email" required placeholder="jane@example.com" />
-        </div>
-        <div class="form-group">
-          <label for="contact-subject">Subject</label>
-          <input type="text" id="contact-subject" name="subject" placeholder="Research Collaboration" />
-        </div>
-        <div class="form-group">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" rows="5" required placeholder="Tell me about your project or question…"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-full" id="contact-submit">Send Message</button>
-        <p class="form-note" id="form-note"></p>
-      </form>
-    </div>
-  </div>
-</section>
-
-
-
 <section class="snap-section overflow-section" id="gallery" aria-label="Gallery">
   <div class="section-inner">
     <div class="section-header center">
@@ -1182,6 +1121,60 @@
       
     </div>
     
+  </div>
+</section>
+
+
+
+<section class="snap-section" id="contact" aria-label="Contact">
+  <div class="section-inner contact-inner">
+    <div class="section-header center">
+      <span class="section-tag">Let's Connect</span>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Open to research collaborations, speaking invitations, and consulting opportunities.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-detail">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <p class="contact-label">Email</p>
+            <a href="mailto:gunjanb@vt.edu" class="contact-value">gunjanb@vt.edu</a>
+          </div>
+        </div>
+        
+        <div class="contact-detail">
+          <span class="contact-icon">🔗</span>
+          <div>
+            <p class="contact-label">LinkedIn</p>
+            <a href="https://linkedin.com/in/gunjanbarua/" target="_blank" rel="noopener" class="contact-value">linkedin.com/in/gunjanbarua</a>
+          </div>
+        </div>
+        
+      </div>
+
+      <form class="contact-form" name="contact" action="#" method="POST" id="contact-form">
+        <div class="form-group">
+          <label for="contact-name">Your Name</label>
+          <input type="text" id="contact-name" name="name" required placeholder="Jane Smith" />
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Email Address</label>
+          <input type="email" id="contact-email" name="email" required placeholder="jane@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="contact-subject">Subject</label>
+          <input type="text" id="contact-subject" name="subject" placeholder="Research Collaboration" />
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" required placeholder="Tell me about your project or question…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="contact-submit">Send Message</button>
+        <p class="form-note" id="form-note"></p>
+      </form>
+    </div>
   </div>
 </section>
 

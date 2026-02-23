@@ -269,8 +269,7 @@ ul {
   font-size: 0.72rem;
   font-weight: 500;
   color: var(--text-dim);
-  opacity: 0;
-  transform: translateX(8px);
+  opacity: 0.6;
   transition: all 0.3s ease;
   order: 1;
   white-space: nowrap;
@@ -286,7 +285,6 @@ ul {
 #side-nav a.nav-dot:hover .label,
 #side-nav a.nav-dot.active .label {
   opacity: 1;
-  transform: translateX(0);
   color: var(--accent);
 }
 
