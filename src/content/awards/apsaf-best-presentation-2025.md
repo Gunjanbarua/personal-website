@@ -1,6 +1,6 @@
 ---
 title: "Best Student Presentation Award"
-org: "APSAF (Alliance for Pinus taeda Silviculture & Aquatic Forestry)"
+org: "APSAF (Appalachian Society of American Forester)"
 year: 2025
 ---
 
