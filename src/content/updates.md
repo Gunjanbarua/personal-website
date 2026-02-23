@@ -2,7 +2,7 @@
 updates:
   - title: "Poster Presentation at AGU 2025"
     date: "2025-12-16"
-    description: "Presented my poster titled 'Crowns, Competition, and Continuity: A Machine Learning Approach for Annual Yield Prediction of *Pinus taeda* (L.) Using UAV-LiDAR Data' at **AGU 2025**, held in New Orleans, LA. Take a look at the poster. See me presenting."
+    description: "Presented my poster titled 'Crowns, Competition, and Continuity: A Machine Learning Approach for Annual Yield Prediction of *Pinus taeda* (L.) Using UAV-LiDAR Data' at **AGU 2025**, held in New Orleans, LA. [Take a look at the poster](https://github.com/Gunjanbarua/posters_presentations/blob/0b7c3dac5b9abb35400cbddf6944abc5e62ed374/Barua_G%20-%202025_AGU.pdf). See me presenting."
 
   - title: "Research Presentation at FMRC Annual Meeting"
     date: "2025-12-10"
