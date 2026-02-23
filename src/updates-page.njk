@@ -20,7 +20,7 @@ permalink: /updates/
             {{ item.date | dateDisplay }}
           </time>
           <div class="update-body">
-            <span class="update-title">{{ item.title }}</span>
+            <span class="update-title">{{ item.title | markdownify | safe }}</span>
             {% if item.description %}
             <p class="update-desc">{{ item.description | markdownify | safe }}</p>
             {% endif %}

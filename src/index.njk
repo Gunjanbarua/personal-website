@@ -72,7 +72,7 @@ title: Portfolio
           {% for item in updates | limit(5) %}
           <li class="update-item">
             <time class="update-date" datetime="{{ item.date }}">{{ item.date | dateDisplay }}</time>
-            <span class="update-title">{{ item.title }}</span>
+            <span class="update-title">{{ item.title | markdownify | safe }}</span>
           </li>
           {% else %}
           <li class="update-item">
