@@ -1,0 +1,92 @@
+backend:
+  name: github
+  repo: Gunjanbarua/personal-website   # ← Replace with your GitHub username/repo-name
+  branch: main
+
+media_folder: src/content/images
+public_folder: /content/images
+
+site_url: https://Gunjanbarua.github.io/personal-website   # ← Replace
+
+collections:
+  # ─── Updates / News ───────────────────────────────────────────────────────
+  - name: updates
+    label: Updates & News
+    folder: src/content/updates
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Body, name: body, widget: markdown, required: false }
+
+  # ─── Experience ───────────────────────────────────────────────────────────
+  - name: experience
+    label: Experience
+    folder: src/content/experience
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Job Title, name: title, widget: string }
+      - { label: Organisation, name: org, widget: string }
+      - { label: Start Date, name: start_date, widget: string, hint: "e.g. Aug 2023" }
+      - { label: End Date, name: end_date, widget: string, hint: "e.g. Present or Oct 2025" }
+      - { label: Order (lower = higher), name: order, widget: number, default: 10 }
+      - { label: Description, name: body, widget: markdown }
+
+  # ─── Publications ─────────────────────────────────────────────────────────
+  - name: publications
+    label: Publications
+    folder: src/content/publications
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Journal / Venue, name: journal, widget: string }
+      - { label: Year, name: year, widget: number }
+      - { label: URL / DOI, name: url, widget: string, required: false }
+      - label: Status
+        name: status
+        widget: select
+        options: [Published, In Prep, Under Review]
+        default: Published
+      - { label: Authors, name: authors, widget: string, required: false }
+
+  # ─── Presentations ────────────────────────────────────────────────────────
+  - name: presentations
+    label: Presentations
+    folder: src/content/presentations
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Event / Conference, name: event, widget: string }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Location, name: location, widget: string, required: false }
+      - { label: Notes, name: body, widget: markdown, required: false }
+
+  # ─── Awards ───────────────────────────────────────────────────────────────
+  - name: awards
+    label: Awards & Scholarships
+    folder: src/content/awards
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Award Title, name: title, widget: string }
+      - { label: Organisation, name: org, widget: string }
+      - { label: Year, name: year, widget: number }
+      - { label: Description, name: body, widget: markdown, required: false }
+
+  # ─── Gallery ──────────────────────────────────────────────────────────────
+  - name: gallery
+    label: Gallery
+    folder: src/content/gallery
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Caption, name: title, widget: string }
+      - label: Image
+        name: image
+        widget: image
+      - { label: Alt Text, name: alt, widget: string, required: false }
+      - { label: Order, name: order, widget: number, default: 10 }
