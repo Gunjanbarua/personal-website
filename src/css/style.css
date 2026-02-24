@@ -422,7 +422,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   z-index: 1;
 }
