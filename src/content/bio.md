@@ -1,6 +1,6 @@
 ---
 name: "Gunjan Barua"
-headline: "Ph.D. Candidate | Geospatial Data Scientist | Co-Founder of CarboBon"
+headline: "AI in Natural Resource | Applied GeoAI Scientist | Climate Tech"
 email: "gunjanb@vt.edu"
 phone: "+1 571 397 6799"
 linkedin: "https://linkedin.com/in/gunjanbarua/"
